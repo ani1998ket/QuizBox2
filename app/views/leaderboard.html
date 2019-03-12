@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class = "leaderboard">
+        <ul>
+            {% for data in dataList %}
+                <li>
+                    <span>{{data.user_name}}</span>
+                    <span>{{data.points}}</span>
+                </li>
+            {% endfor %}
+        </ul>                    
+        
+    </div>
+
+    <a href = "/">Back to home</a>
+</body>
+</html>

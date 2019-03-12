@@ -6,6 +6,8 @@
             "/signup" => "Controllers\\SignUpController",
             "/problems" => "Controllers\\ProblemsController",
             "/problems/:number" => "Controllers\\QuestionController",
-             "/logout" => "Controllers\\LogOutController"
+             "/logout" => "Controllers\\LogOutController",
+             "/users" => "Controllers\\LeaderBoardController",
+             "/admin" => "Controllers\\AdminController"
     ))
 ?>

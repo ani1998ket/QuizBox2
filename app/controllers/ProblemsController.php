@@ -12,10 +12,10 @@
         }
 
         public function get(){
-            echo $this->twig->render("pages.html", array(
-                "title" => "problems",
-                "questions" => Problems::getProblems()
-            ));
+            
+            $data = array("title" => "problems",
+                                "questions" => Problems::getProblems());
+            echo $this->twig->render("problems.html", $data);
         }
 
     }

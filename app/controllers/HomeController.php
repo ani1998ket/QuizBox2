@@ -20,7 +20,7 @@
 
             echo $this->twig->render("home.html", array(
                 "title" => "QuizBox",
-                "username" => $user
+                "username" => $user,
             ));
         }
     }

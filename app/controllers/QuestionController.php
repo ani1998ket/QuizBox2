@@ -1,7 +1,8 @@
 <?php
     namespace Controllers;
     use Models\Problems;
-
+    use Models\Users;
+    session_start();
     class QuestionController{
 
         protected $twig;
@@ -24,10 +25,16 @@
         }
 
         public function post($number){
-
+            $user = $_SESSION['username'];
             $answer = $_POST["answer"];
+
             $isCorrect = Problems::checkAnswer($number, $answer);
             $data = Problems::getQuestion($number);
+
+            
+            if($isCorrect){
+                Users::addPoints($user,$data['points']);
+            }
             echo $this->twig->render("question.html", array(
                 "title" => "Question".$number,
                 "q_id" => $data["id"],

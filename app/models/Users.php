@@ -1,6 +1,5 @@
 <?php
     namespace Models;
-    session_start();
     
     class Users{
         
@@ -26,6 +25,15 @@
 
             $row = $checkUser->fetchAll();
             return $row;
+        }
+
+        public static function addPoints($user, $points){
+            $db = self::getDB();
+            $query = "UPDATE userbase SET points = points + $points WHERE user_name = :user";
+            $data = $db->prepare($query);
+            $data->execute(array(
+                "user" => $user,
+            ));
         }
     };
 ?>

@@ -1,11 +1,11 @@
 <?php
-
     namespace Models;
-
+    session_start();
+    
     class Login{
         
         public function __construct(){
-
+            
         }
 
         public function getDB(){

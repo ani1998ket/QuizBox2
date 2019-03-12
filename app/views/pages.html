@@ -9,11 +9,7 @@
     <script src="main.js"></script> -->
 </head>
 <body>
-    {%if username %}
-        {{username}}
-    {% endif %}
-    <br>
-    Welcome to QuizBox
+    QuizBox
     <br>
     
     <nav>
@@ -21,8 +17,18 @@
         <a href = "/profile"> My Profile</a>
         <a href = "/users"> Leaderboard</a>
         <a href = "/login"> Login</a>
-        <a href = "/logout"> LogOut</a>
     </nav>
-    
+
+    <div>
+        <ul>
+            {% for data in questions %}
+                <li>
+                    <div id = {{data.id}}>
+                        <a href = "/problems/{{data.id}}">{{data.question}}</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

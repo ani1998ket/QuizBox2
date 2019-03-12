@@ -24,7 +24,8 @@
             $result = Login::authenticate($username, $password);
 
             if($result){
-                echo $this->twig->render("home.html");
+                $_SESSION['username'] = $username;
+                header("Location: /");
             }
             else{
                 echo $this->twig->render("login.html", array(

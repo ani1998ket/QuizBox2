@@ -5,6 +5,6 @@
             "/login" => "Controllers\\LoginController",
             "/signup" => "Controllers\\SignUpController",
             "/problems" => "Controllers\\ProblemsController",
-            
+            "/logout" => "Controllers\\LogOutController"
     ))
 ?>

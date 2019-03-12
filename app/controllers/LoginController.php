@@ -4,7 +4,7 @@
 
     class LoginController{
 
-        public $twig;
+        protected $twig;
 
         public function __construct(){
             $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../views');
@@ -24,7 +24,7 @@
             $result = Login::authenticate($username, $password);
 
             if($result){
-                echo $this->twig->render("");
+                echo $this->twig->render("home.html");
             }
             else{
                 echo $this->twig->render("login.html", array(

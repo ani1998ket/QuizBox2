@@ -4,6 +4,7 @@
             "/" => "Controllers\\HomeController",
             "/login" => "Controllers\\LoginController",
             "/signup" => "Controllers\\SignUpController",
+            "/problems" => "Controllers\\ProblemsController",
             
     ))
 ?>

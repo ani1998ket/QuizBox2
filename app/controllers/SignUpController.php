@@ -12,7 +12,7 @@
         }
 
         public function get(){
-
+            
             echo $this->twig->render("signup.html", array(
                 "title" => "SignUp",
                 "username" => $user,));

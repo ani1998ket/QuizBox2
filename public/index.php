@@ -8,6 +8,7 @@
             "/problems/:number" => "Controllers\\QuestionController",
              "/logout" => "Controllers\\LogOutController",
              "/users" => "Controllers\\LeaderBoardController",
-             "/admin" => "Controllers\\AdminController"
+             "/admin" => "Controllers\\AdminController",
+             "/navBar" => "Controllers\\navBarController"
     ))
 ?>

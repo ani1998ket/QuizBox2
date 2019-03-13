@@ -1,5 +1,6 @@
 <?php
     namespace Controllers;
+    use Models\Users;
     session_start();
     
     class HomeController{
@@ -13,10 +14,11 @@
 
         public function get(){
             $user = isset($_SESSION['username']) ? $_SESSION['username'] : "";
-
+            $isAdmin = Users::checkAdmin($user);
             echo $this->twig->render("home.html", array(
                 "title" => "QuizBox",
                 "username" => $user,
+                "isAdmin" => $isAdmin,
             ));
         }
     }

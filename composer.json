@@ -3,7 +3,8 @@
 	"description" : "quizing platform made using PHP and MVC architecture",
 	"require" : {
 		"torophp/torophp" : "dev-master",
-		"twig/twig" : "2.0"
+		"twig/twig" : "2.0",
+		"twig/extensions": "^1.5"
 	},
 	"autoload" : {
 		"psr-4" : {

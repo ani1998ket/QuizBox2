@@ -1,6 +1,7 @@
 <?php
     namespace Controllers;
     use Models\Problems;
+    use Models\Users;
     session_start();
     class ProblemsController{
 
@@ -13,9 +14,12 @@
 
         public function get(){
             $user = isset($_SESSION['username']) ? $_SESSION['username'] : "";
+            $isAdmin = Users::checkAdmin($user);
             $data = array("title" => "problems",
                             "username" => $user,
-                            "questions" => Problems::getProblems());
+                            "questions" => Problems::getProblems(),
+                            "isAdmin" => $isAdmin,
+                        );
             echo $this->twig->render("problems.html", $data);
         }
 

@@ -2,8 +2,8 @@
     namespace Controllers;
     use Models\Problems;
     use Models\Users;
-
     session_start();
+
     class AdminController{
 
         protected $twig;
@@ -15,11 +15,12 @@
 
         public function get(){
             $user = isset($_SESSION['username']) ? $_SESSION['username'] : "";
-            
-            if(Users::checkAdmin($user)){
+            $isAdmin = Users::checkAdmin($user);
+            if($isAdmin){
                 echo $this->twig->render("adminPortal.html", array(
                     "title" => "AdminPortal",
                     "username" => $user,
+                    "isAdmin" => $isAdmin,
                 ));
             }
             else{

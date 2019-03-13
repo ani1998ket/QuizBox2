@@ -1,11 +1,10 @@
 <?php
-    
     namespace Controllers;
     use Models\Users;
     session_start();
-
-    class LeaderBoardController{
-
+    
+    class navBarController{
+        
         protected $twig;
 
         public function __construct(){
@@ -16,9 +15,7 @@
         public function get(){
             $user = isset($_SESSION['username']) ? $_SESSION['username'] : "";
             $isAdmin = Users::checkAdmin($user);
-            echo $this->twig->render("leaderboard.html", array(
-                "title" => "QuizBox",
-                "dataList" => Users::getUsers(),
+            echo $this->twig->render("navBar.html", array(
                 "username" => $user,
                 "isAdmin" => $isAdmin,
             ));

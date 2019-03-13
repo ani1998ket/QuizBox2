@@ -16,14 +16,17 @@
             $user = isset($_SESSION['username']) ? $_SESSION['username'] : "";
             $isAdmin = Users::checkAdmin($user);
             $data = Problems::getQuestion($number);
+            $isSolved = Problems::checkSolvedState($user, $data['id']);
+            $isAttempted = ($isSolved) ? 1 : 0;
             echo $this->twig->render("question.html", array(
                 "title" => "Question".$number,
                 "username" => $user,
                 "q_id" => $data["id"],
                 "q_text" => $data["question"],
-                "attempted " => 0,
+                "attempted" => $isAttempted,
                 "isAdmin" => $isAdmin,
             ));
+            
 
         }
 
@@ -33,10 +36,12 @@
 
             $isCorrect = Problems::checkAnswer($number, $answer);
             $data = Problems::getQuestion($number);
+            $isSolved = Problems::checkSolvedState($user, $data['id']);
 
             
-            if($isCorrect){
+            if($isCorrect && !$isSolved){
                 Users::addPoints($user,$data['points']);
+                Problems::addSolvedState($user, $data['id']);
             }
             echo $this->twig->render("question.html", array(
                 "title" => "Question".$number,

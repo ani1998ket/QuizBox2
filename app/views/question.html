@@ -11,7 +11,7 @@
     <form method="POST" action = "/problems/{{q_id}}">
         <br>
         <p>{{q_text}}</p>
-        {% if not attempted %}
+        {% if not attempted and user != ""%}
             <input type = "text" name= "answer">
             <input type = "submit" value="Submit">
         {% endif %}

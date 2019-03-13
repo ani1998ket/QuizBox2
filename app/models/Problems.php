@@ -17,6 +17,7 @@
             }
 
             public function addQuestion($question, $answer, $points){
+                
                 $db = self::getDB();
 
                 $query = "INSERT INTO `questions`( `question`, `answer`, `points`) 
@@ -26,9 +27,7 @@
                     "question" => $question,
                     "answer" => $answer,
                     "points" => $points
-                ));
-
-               
+                ));               
 
             }
             public static function getProblems(){
@@ -74,7 +73,31 @@
 
             }
 
+            public static function addSolvedState($username, $q_id){
+               
+                $db = self::getDB();
 
+                $query = "INSERT INTO `solved_questions`( `user_name`, `q_id`) 
+                            VALUES (:username, :q_id)";
+                $questions = $db->prepare($query);
+                $questions->execute(array(
+                    "username" => $username,
+                    "q_id" => $q_id,
+                ));
+            }
+
+            public static function checkSolvedState($username, $q_id){
+               
+                $db = self::getDB();
+
+                $query = "SELECT * FROM solved_questions WHERE q_id = $q_id AND user_name = '$username'";
+                $questions = $db->prepare($query);
+                $questions->execute();
+                $row = $questions->fetchAll();
+
+                if($row) return true;
+                else return false;
+            }
 
 
     }

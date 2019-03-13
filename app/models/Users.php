@@ -35,5 +35,18 @@
                 "user" => $user,
             ));
         }
+
+        public static function checkAdmin($user){
+            $db = self::getDB();
+            $query = "SELECT * FROM adminBase WHERE user_name = :user";
+            $data = $db->prepare($query);
+            $data->execute(array(
+                "user" => $user,
+            ));
+            $row = $data->fetchAll();
+            
+            if($row) return true;
+            else return false;
+        }
     };
 ?>

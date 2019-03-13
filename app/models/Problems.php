@@ -16,6 +16,21 @@
                 );
             }
 
+            public function addQuestion($question, $answer, $points){
+                $db = self::getDB();
+
+                $query = "INSERT INTO `questions`( `question`, `answer`, `points`) 
+                            VALUES (:question, :answer, :points)";
+                $questions = $db->prepare($query);
+                $questions->execute(array(
+                    "question" => $question,
+                    "answer" => $answer,
+                    "points" => $points
+                ));
+
+               
+
+            }
             public static function getProblems(){
                 
                 $db = self::getDB();

@@ -1,0 +1,17 @@
+
+<nav>
+        <a href = "/problems"> Problems</a>
+        <a href = "/users"> Leaderboard</a>
+       
+        {%if username %}
+            <a href = "/logout"> LogOut</a>
+        {% else %}
+            <a href = "/login"> Login</a>
+        {% endif %}
+        
+</nav>
+<span> 
+    {%if username %}
+        Hello    {{username}}
+    {% endif %}
+</span>

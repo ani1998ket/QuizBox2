@@ -1,6 +1,5 @@
 <?php
     namespace Models;
-    session_start();
     
     class Login{
         

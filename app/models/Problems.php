@@ -60,7 +60,7 @@
                 
                 $db = self::getDB();
 
-                $sql = "SELECT * FROM questions WHERE id = $q_id AND answer = $answer" ;
+                $sql = "SELECT * FROM questions WHERE id = $q_id AND answer = '$answer'" ;
                 $questions = $db->prepare($sql);
                 $questions->execute();
                 $row = $questions->fetch();

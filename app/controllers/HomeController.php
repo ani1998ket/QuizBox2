@@ -12,11 +12,7 @@
         }
 
         public function get(){
-            $user = "";
-            //find proper way to check session
-            if(isset($_SESSION['username'])) {
-                $user =  $_SESSION['username'];
-            } 
+            $user = isset($_SESSION['username']) ? $_SESSION['username'] : "";
 
             echo $this->twig->render("home.html", array(
                 "title" => "QuizBox",

@@ -1,7 +1,7 @@
 <?php
     namespace Controllers;
     use Models\SignUp;
-
+    session_start();
     class SignUpController{
 
         protected $twig;
@@ -12,8 +12,10 @@
         }
 
         public function get(){
+
             echo $this->twig->render("signup.html", array(
-                "title" => "SignUp"));
+                "title" => "SignUp",
+                "username" => $user,));
         }
 
         public function post(){

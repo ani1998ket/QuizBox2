@@ -9,15 +9,7 @@
     <script src="main.js"></script> -->
 </head>
 <body>
-    QuizBox
-    <br>
-    
-    <nav>
-        <a href = "/problems"> Problems</a>
-        <a href = "/users"> Leaderboard</a>
-        <a href = "/login"> Login</a>
-    </nav>
-
+    {%include 'navBar.html'%}
     <div>
         <ul>
             {% for data in questions %}

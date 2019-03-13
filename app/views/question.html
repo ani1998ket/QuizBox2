@@ -7,8 +7,8 @@
     <title>{{title}}</title>
 </head>
 <body>
+    {%include 'navBar.html'%}
     <form method="POST" action = "/problems/{{q_id}}">
-        {{q_id}}
         <br>
         <p>{{q_text}}</p>
         {% if not attempted %}

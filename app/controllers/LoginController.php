@@ -1,6 +1,7 @@
 <?php
     namespace Controllers;
     use Models\Login;
+    session_start();
 
     class LoginController{
 
@@ -12,8 +13,10 @@
         }
 
         public function get(){
+            $user = isset($_SESSION['username']) ? $_SESSION['username'] : "";
             echo $this->twig->render("login.html", array(
-                "title" => "Login"));
+                "title" => "Login",
+            ));
         }
 
         public function post(){

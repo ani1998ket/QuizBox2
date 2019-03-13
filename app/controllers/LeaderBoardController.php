@@ -1,8 +1,8 @@
 <?php
     
     namespace Controllers;
-    
     use Models\Users;
+    session_start();
 
     class LeaderBoardController{
 
@@ -14,9 +14,11 @@
         }
 
         public function get(){
+            $user = isset($_SESSION['username']) ? $_SESSION['username'] : "";
             echo $this->twig->render("leaderboard.html", array(
                 "title" => "QuizBox",
                 "dataList" => Users::getUsers(),
+                "username" => $user,
             ));
         }
     }

@@ -19,6 +19,7 @@
             if(Users::checkAdmin($user)){
                 echo $this->twig->render("adminPortal.html", array(
                     "title" => "AdminPortal",
+                    "username" => $user,
                 ));
             }
             else{

@@ -13,10 +13,11 @@
         }
 
         public function get($number){
-
+            $user = isset($_SESSION['username']) ? $_SESSION['username'] : "";
             $data = Problems::getQuestion($number);
             echo $this->twig->render("question.html", array(
                 "title" => "Question".$number,
+                "username" => $user,
                 "q_id" => $data["id"],
                 "q_text" => $data["question"],
                 "attempted " => 0,

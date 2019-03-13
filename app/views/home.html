@@ -9,24 +9,13 @@
     <script src="main.js"></script> -->
 </head>
 <body>
-    {%if username %}
-        {{username}}
-    {% endif %}
+    {%include 'navBar.html'%}
+   
     <br>
     Welcome to QuizBox
     <br>
     
-    <nav>
-        <a href = "/problems"> Problems</a>
-        <a href = "/users"> Leaderboard</a>
-       
-        {%if username %}
-            <a href = "/logout"> LogOut</a>
-        {% else %}
-            <a href = "/login"> Login</a>
-        {% endif %}
-        
-    </nav>
+    
     
 </body>
 </html>
